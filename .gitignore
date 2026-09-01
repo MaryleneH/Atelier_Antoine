@@ -1,0 +1,40 @@
+# ---- Quarto ----
+# Fichiers générés par le rendu Quarto
+_quarto/
+_site/
+*.html
+*.html~
+
+# ---- R ----
+# Fichiers temporaires R
+*.RData
+*.Rproj.user/
+*.rds
+*.rda
+.Rhistory
+.RData
+
+# ---- Python ----
+# Environnements Python
+.venv/
+env/
+venv/
+
+# ---- Jupyter ----
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# ---- OS ----
+.DS_Store
+Thumbs.db
+*.swp
+*~
+
+# ---- IDE ----
+.idea/
+.vscode/
+*.sublime-*
+
+# ---- Cache divers ----
+.cache/
+.rproj.user/

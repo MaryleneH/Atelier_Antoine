@@ -1,0 +1,389 @@
+---
+title: "Vibe coding statistique"
+subtitle: "Étape 0 — Setting, cadrage et garde-fous"
+author: "Formation interne — version de travail"
+date: today
+lang: fr
+format:
+  revealjs:
+    theme: [default, step0-theme.scss]
+    embed-resources: true
+    slide-number: c/t
+    chalkboard: false
+    preview-links: false
+    transition: slide
+    background-transition: fade
+    controls: true
+    progress: true
+    history: true
+    hash: true
+    center: false
+    width: 1440
+    height: 900
+    margin: 0.06
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+## Vibe coding statistique {.title-slide}
+
+::: {.hero-grid}
+::: {.hero-left}
+<div class="eyebrow">Étape 0</div>
+
+# Se mettre d'accord avant de coder
+
+<div class="hero-subtitle">
+Une formation pour apprendre à construire une datavisualisation Quarto interactive, moderne, livrable sans serveur — sans perdre la maîtrise statistique du produit.
+</div>
+
+<div class="hero-tags">
+<span>Quarto</span><span>Dataviz</span><span>HTML autonome</span><span>Contrôle statistique</span>
+</div>
+:::
+
+::: {.hero-right}
+<div class="orbital">
+  <div class="orbit orbit-one"></div>
+  <div class="orbit orbit-two"></div>
+  <div class="core">POC</div>
+  <div class="node n1">Données</div>
+  <div class="node n2">Analyse</div>
+  <div class="node n3">Interface</div>
+  <div class="node n4">Tests</div>
+</div>
+:::
+:::
+
+::: notes
+Insister dès l'ouverture : on ne forme pas au « joli code généré ». On forme à une méthode de production statistique augmentée par IA.
+:::
+
+## Pourquoi une étape 0 ?
+
+::: {.statement}
+Le risque du vibe coding n'est pas que l'IA code trop vite.  
+Le risque, c'est que nous ne sachions plus exactement **ce que nous avons produit**.
+:::
+
+::: {.three-points}
+::: {.point fragment}
+<div class="point-number">01</div>
+<h3>Cadrer le destinataire</h3>
+<p>Qui utilise le produit ? Pour décider quoi ? Avec quel niveau d'autonomie ?</p>
+:::
+
+::: {.point fragment}
+<div class="point-number">02</div>
+<h3>Fixer la livraison</h3>
+<p>Un fichier HTML autonome, consultable dans le navigateur, sans serveur applicatif.</p>
+:::
+
+::: {.point fragment}
+<div class="point-number">03</div>
+<h3>Garder la maîtrise</h3>
+<p>Statistique, technique, confidentialité, reproductibilité : rien ne doit rester implicite.</p>
+:::
+:::
+
+## Le contrat de départ {.section-slide}
+
+::: {.contract}
+::: {.contract-item fragment}
+<span class="label">Public final</span>
+<strong>Commanditaire métier</strong>
+<em>Lit, filtre, compare, comprend. Ne code pas.</em>
+:::
+
+::: {.contract-item fragment}
+<span class="label">Public formé</span>
+<strong>Statisticien / chargé d'étude</strong>
+<em>Conçoit l'analyse, pilote l'IA, contrôle le résultat.</em>
+:::
+
+::: {.contract-item fragment}
+<span class="label">Produit attendu</span>
+<strong>Datastory interactive Quarto</strong>
+<em>Pas un notebook, pas une application serveur, pas un tableau BI générique.</em>
+:::
+
+::: {.contract-item fragment}
+<span class="label">Mode de diffusion</span>
+<strong>HTML autonome</strong>
+<em>Ouvrable dans Edge/Firefox/Chrome ; partage possible comme un document.</em>
+:::
+:::
+
+## À qui parle-t-on ?
+
+::: {.audience-map}
+<div class="audience-card fragment">
+  <div class="audience-icon">👤</div>
+  <h3>Le commanditaire</h3>
+  <p>Veut comprendre vite, explorer quelques hypothèses, repartir avec un message fiable.</p>
+</div>
+
+<div class="audience-card main fragment">
+  <div class="audience-icon">📊</div>
+  <h3>Le statisticien</h3>
+  <p>Reste responsable des concepts, des traitements, des agrégations et des limites.</p>
+</div>
+
+<div class="audience-card fragment">
+  <div class="audience-icon">🛡️</div>
+  <h3>L'environnement pro</h3>
+  <p>Contraint les données, les navigateurs, les dépendances, les lieux de diffusion.</p>
+</div>
+</div>
+
+::: {.takeaway fragment}
+Le produit doit donc être **simple à ouvrir**, **agréable à lire**, **difficile à mal interpréter**.
+:::
+
+## La cible technique
+
+::: {.tech-target}
+<div class="screen-mockup fragment">
+  <div class="screen-bar"><span></span><span></span><span></span></div>
+  <div class="screen-body">
+    <div class="mock-title">Analyse PCS × sexe</div>
+    <div class="mock-kpis"><i></i><i></i><i></i></div>
+    <div class="mock-chart"></div>
+    <div class="mock-row"><b></b><b></b><b></b><b></b></div>
+  </div>
+</div>
+
+<div class="target-copy">
+<h3>Un objet final très simple</h3>
+<p class="big-code">analyse_interactive.html</p>
+<p>Le navigateur exécute l'interactivité. Les calculs lourds ont déjà été faits en amont.</p>
+</div>
+</div>
+
+## Les briques retenues
+
+::: {.stack-grid}
+::: {.stack-card fragment}
+<div class="stack-title">Quarto</div>
+<p>Structure, narration, slides, dashboard, rendu HTML.</p>
+:::
+
+::: {.stack-card fragment}
+<div class="stack-title">R / Python</div>
+<p>Contrôles, nettoyage, indicateurs, reproductibilité statistique.</p>
+:::
+
+::: {.stack-card fragment}
+<div class="stack-title">DuckDB / Parquet</div>
+<p>Traitements efficaces, même quand la donnée devient volumineuse.</p>
+:::
+
+::: {.stack-card fragment}
+<div class="stack-title">JavaScript côté navigateur</div>
+<p>Filtres, interactions, transitions, dataviz réactive sans serveur.</p>
+:::
+
+::: {.stack-card fragment}
+<div class="stack-title">CSS</div>
+<p>Identité visuelle, hiérarchie, lisibilité, responsive design.</p>
+:::
+
+::: {.stack-card fragment}
+<div class="stack-title">Git</div>
+<p>Versions, retours arrière, commits lisibles, traces des choix.</p>
+:::
+:::
+
+## Ce que l'on ne fait pas
+
+::: {.no-list}
+<div class="no-item fragment">
+  <span>✕</span>
+  <strong>Pas de Shiny</strong>
+  <em>pas de serveur applicatif à maintenir</em>
+</div>
+
+<div class="no-item fragment">
+  <span>✕</span>
+  <strong>Pas de déploiement obligatoire</strong>
+  <em>le HTML peut vivre seul</em>
+</div>
+
+<div class="no-item fragment">
+  <span>✕</span>
+  <strong>Pas de données individuelles embarquées</strong>
+  <em>on expose les agrégats nécessaires, pas la base source</em>
+</div>
+
+<div class="no-item fragment">
+  <span>✕</span>
+  <strong>Pas de boîte noire</strong>
+  <em>tout code généré doit être relu, testé, versionné</em>
+</div>
+</div>
+
+## Le flux de production {.section-slide}
+
+::: {.pipeline}
+<div class="pipe-step fragment">
+  <span>1</span>
+  <strong>Données sources</strong>
+  <em>CSV, Parquet, bases internes</em>
+</div>
+<div class="pipe-arrow fragment">→</div>
+<div class="pipe-step fragment">
+  <span>2</span>
+  <strong>Calcul statistique</strong>
+  <em>R / Python / DuckDB</em>
+</div>
+<div class="pipe-arrow fragment">→</div>
+<div class="pipe-step fragment">
+  <span>3</span>
+  <strong>Agrégats dataviz</strong>
+  <em>petits, contrôlés, non sensibles</em>
+</div>
+<div class="pipe-arrow fragment">→</div>
+<div class="pipe-step fragment">
+  <span>4</span>
+  <strong>Quarto + interface</strong>
+  <em>narration, filtres, graphes</em>
+</div>
+<div class="pipe-arrow fragment">→</div>
+<div class="pipe-step fragment">
+  <span>5</span>
+  <strong>HTML autonome</strong>
+  <em>livrable final</em>
+</div>
+</div>
+
+## Garantir la maîtrise du produit vibe codé
+
+::: {.control-frame}
+<div class="control-center">Maîtrise</div>
+<div class="control-axis axis-one fragment">
+  <h3>Statistique</h3>
+  <p>Indicateurs, pondérations, champ, limites, interprétation.</p>
+</div>
+<div class="control-axis axis-two fragment">
+  <h3>Technique</h3>
+  <p>Dépendances, autonomie, compatibilité navigateur, performance.</p>
+</div>
+<div class="control-axis axis-three fragment">
+  <h3>Confidentialité</h3>
+  <p>Agrégats seulement, pas de données inutiles dans le HTML.</p>
+</div>
+<div class="control-axis axis-four fragment">
+  <h3>Reproductibilité</h3>
+  <p>Scripts, tests, README, commits, version du livrable.</p>
+</div>
+</div>
+
+## La définition du « fini »
+
+::: {.done-grid}
+<div class="done-item fragment"><span>✓</span><p>Le fichier s'ouvre par double-clic.</p></div>
+<div class="done-item fragment"><span>✓</span><p>Les filtres réagissent sans serveur.</p></div>
+<div class="done-item fragment"><span>✓</span><p>Le résultat reste lisible sur écran portable.</p></div>
+<div class="done-item fragment"><span>✓</span><p>Les agrégats affichés sont recalculables.</p></div>
+<div class="done-item fragment"><span>✓</span><p>Aucune ressource externe non assumée.</p></div>
+<div class="done-item fragment"><span>✓</span><p>Le champ statistique est explicite.</p></div>
+<div class="done-item fragment"><span>✓</span><p>Les limites sont visibles.</p></div>
+<div class="done-item fragment"><span>✓</span><p>Un commit décrit chaque étape.</p></div>
+</div>
+
+## La boucle de vibe coding
+
+::: {.loop}
+<div class="loop-item l1 fragment">Intention</div>
+<div class="loop-item l2 fragment">Prompt</div>
+<div class="loop-item l3 fragment">Code généré</div>
+<div class="loop-item l4 fragment">Exécution</div>
+<div class="loop-item l5 fragment">Observation</div>
+<div class="loop-item l6 fragment">Correction</div>
+<div class="loop-core fragment">Contrôle humain</div>
+</div>
+
+::: {.takeaway fragment}
+L'IA accélère la fabrication.  
+Le statisticien garde la responsabilité de la preuve.
+:::
+
+## Le prompt n'est pas une demande de code
+
+::: {.prompt-method}
+<div class="prompt-block fragment">
+<h3>1. Rôle</h3>
+<p>« Agis comme UX designer data + développeur Quarto. »</p>
+</div>
+
+<div class="prompt-block fragment">
+<h3>2. Contraintes</h3>
+<p>« Pas de serveur, pas de Shiny, HTML autonome, données agrégées. »</p>
+</div>
+
+<div class="prompt-block fragment">
+<h3>3. Intention statistique</h3>
+<p>« Montrer les différences de structure PCS selon le sexe. »</p>
+</div>
+
+<div class="prompt-block fragment">
+<h3>4. Critères de contrôle</h3>
+<p>« Fournis les tests et explique ce que je dois vérifier. »</p>
+</div>
+</div>
+
+## Le fil rouge de la formation
+
+::: {.case-study}
+<div class="case-left">
+<h3>POC BTS simulée</h3>
+<p>Deux zones d'emploi : Toulouse et Bordeaux.</p>
+<p>Question : comment les PCS se distribuent-elles selon le sexe ?</p>
+</div>
+
+<div class="case-right">
+<div class="mini-chart">
+  <div style="height: 70%"></div>
+  <div style="height: 38%"></div>
+  <div style="height: 55%"></div>
+  <div style="height: 22%"></div>
+  <div style="height: 62%"></div>
+</div>
+<div class="mini-caption">Une base fictive pour apprendre sans exposer de données sensibles.</div>
+</div>
+</div>
+
+## Ce que l'on va construire ensuite
+
+::: {.roadmap}
+<div class="road-step active fragment">
+<span>0</span><strong>Setting</strong><em>cadrage + garde-fous</em>
+</div>
+<div class="road-step fragment">
+<span>1</span><strong>Données</strong><em>Parquet + contrôles</em>
+</div>
+<div class="road-step fragment">
+<span>2</span><strong>Dataviz</strong><em>choix visuels + storyboard</em>
+</div>
+<div class="road-step fragment">
+<span>3</span><strong>Dashboard</strong><em>Quarto + HTML autonome</em>
+</div>
+<div class="road-step fragment">
+<span>4</span><strong>Maîtrise</strong><em>tests + corrections IA</em>
+</div>
+</div>
+
+## Commit conseillé
+
+```bash
+# initialisation de l'étape 0
+git add slides/step0_setting.qmd slides/step0-theme.scss README.md
+git commit -m "[INIT] add step 0 training slides"
+```
+
+::: {.closing}
+Avant de vibe coder, on écrit le contrat de fabrication.  
+C'est lui qui transforme une expérimentation IA en produit statistique maîtrisé.
+:::
