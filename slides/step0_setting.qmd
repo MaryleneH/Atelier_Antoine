@@ -21,6 +21,7 @@ format:
     width: 1440
     height: 900
     margin: 0.06
+    html-math-method: plain
 execute:
   echo: false
   warning: false
@@ -69,19 +70,19 @@ Le risque, c'est que nous ne sachions plus exactement **ce que nous avons produi
 :::
 
 ::: {.three-points}
-::: {.point fragment}
+::: {.point .fragment}
 <div class="point-number">01</div>
 <h3>Cadrer le destinataire</h3>
 <p>Qui utilise le produit ? Pour décider quoi ? Avec quel niveau d'autonomie ?</p>
 :::
 
-::: {.point fragment}
+::: {.point .fragment}
 <div class="point-number">02</div>
 <h3>Fixer la livraison</h3>
 <p>Un fichier HTML autonome, consultable dans le navigateur, sans serveur applicatif.</p>
 :::
 
-::: {.point fragment}
+::: {.point .fragment}
 <div class="point-number">03</div>
 <h3>Garder la maîtrise</h3>
 <p>Statistique, technique, confidentialité, reproductibilité : rien ne doit rester implicite.</p>
@@ -91,25 +92,25 @@ Le risque, c'est que nous ne sachions plus exactement **ce que nous avons produi
 ## Le contrat de départ {.section-slide}
 
 ::: {.contract}
-::: {.contract-item fragment}
+::: {.contract-item .fragment}
 <span class="label">Public final</span>
 <strong>Commanditaire métier</strong>
 <em>Lit, filtre, compare, comprend. Ne code pas.</em>
 :::
 
-::: {.contract-item fragment}
+::: {.contract-item .fragment}
 <span class="label">Public formé</span>
 <strong>Statisticien / chargé d'étude</strong>
 <em>Conçoit l'analyse, pilote l'IA, contrôle le résultat.</em>
 :::
 
-::: {.contract-item fragment}
+::: {.contract-item .fragment}
 <span class="label">Produit attendu</span>
 <strong>Datastory interactive Quarto</strong>
 <em>Pas un notebook, pas une application serveur, pas un tableau BI générique.</em>
 :::
 
-::: {.contract-item fragment}
+::: {.contract-item .fragment}
 <span class="label">Mode de diffusion</span>
 <strong>HTML autonome</strong>
 <em>Ouvrable dans Edge/Firefox/Chrome ; partage possible comme un document.</em>
@@ -136,9 +137,9 @@ Le risque, c'est que nous ne sachions plus exactement **ce que nous avons produi
   <h3>L'environnement pro</h3>
   <p>Contraint les données, les navigateurs, les dépendances, les lieux de diffusion.</p>
 </div>
-</div>
+:::
 
-::: {.takeaway fragment}
+::: {.takeaway .fragment}
 Le produit doit donc être **simple à ouvrir**, **agréable à lire**, **difficile à mal interpréter**.
 :::
 
@@ -160,37 +161,37 @@ Le produit doit donc être **simple à ouvrir**, **agréable à lire**, **diffic
 <p class="big-code">analyse_interactive.html</p>
 <p>Le navigateur exécute l'interactivité. Les calculs lourds ont déjà été faits en amont.</p>
 </div>
-</div>
+:::
 
 ## Les briques retenues
 
 ::: {.stack-grid}
-::: {.stack-card fragment}
+::: {.stack-card .fragment}
 <div class="stack-title">Quarto</div>
 <p>Structure, narration, slides, dashboard, rendu HTML.</p>
 :::
 
-::: {.stack-card fragment}
+::: {.stack-card .fragment}
 <div class="stack-title">R / Python</div>
 <p>Contrôles, nettoyage, indicateurs, reproductibilité statistique.</p>
 :::
 
-::: {.stack-card fragment}
+::: {.stack-card .fragment}
 <div class="stack-title">DuckDB / Parquet</div>
 <p>Traitements efficaces, même quand la donnée devient volumineuse.</p>
 :::
 
-::: {.stack-card fragment}
+::: {.stack-card .fragment}
 <div class="stack-title">JavaScript côté navigateur</div>
 <p>Filtres, interactions, transitions, dataviz réactive sans serveur.</p>
 :::
 
-::: {.stack-card fragment}
+::: {.stack-card .fragment}
 <div class="stack-title">CSS</div>
 <p>Identité visuelle, hiérarchie, lisibilité, responsive design.</p>
 :::
 
-::: {.stack-card fragment}
+::: {.stack-card .fragment}
 <div class="stack-title">Git</div>
 <p>Versions, retours arrière, commits lisibles, traces des choix.</p>
 :::
@@ -208,7 +209,7 @@ Le produit doit donc être **simple à ouvrir**, **agréable à lire**, **diffic
 <div class="no-item fragment">
   <span>✕</span>
   <strong>Pas de déploiement obligatoire</strong>
-  <em>le HTML peut vivre seul</em>
+  <em>le HTML peut vivre seul, sans infrastructure</em>
 </div>
 
 <div class="no-item fragment">
@@ -222,7 +223,62 @@ Le produit doit donc être **simple à ouvrir**, **agréable à lire**, **diffic
   <strong>Pas de boîte noire</strong>
   <em>tout code généré doit être relu, testé, versionné</em>
 </div>
+:::
+
+## Contraintes professionnelles
+
+::: {.constraints-grid}
+<div class="constraint-card fragment">
+  <div class="constraint-icon">🔒</div>
+  <h3>Données</h3>
+  <p>Seuls les agrégats de datavisualisation circulent dans le HTML final. Aucune donnée individuelle, même anonymisée.</p>
 </div>
+
+<div class="constraint-card fragment">
+  <div class="constraint-icon">🌐</div>
+  <h3>Navigateur</h3>
+  <p>Edge, Firefox ou Chrome sur poste de travail. Pas de CDN externe obligatoire. Aucun appel réseau au chargement.</p>
+</div>
+
+<div class="constraint-card fragment">
+  <div class="constraint-icon">📦</div>
+  <h3>Dépendances</h3>
+  <p>Bibliothèques embarquées dans le HTML ou déclarées explicitement. Pas d'installation silencieuse.</p>
+</div>
+
+<div class="constraint-card fragment">
+  <div class="constraint-icon">🏛️</div>
+  <h3>Diffusion</h3>
+  <p>Le fichier HTML est transmis comme un document. Pas de serveur requis côté commanditaire.</p>
+</div>
+:::
+
+::: {.takeaway .fragment}
+Ces contraintes ne sont pas des obstacles. Ce sont les **conditions de la confiance**.
+:::
+
+## Confidentialité et données fictives
+
+::: {.confidentiality-frame}
+<div class="conf-block fragment">
+  <div class="conf-badge warning">⚠ Règle</div>
+  <p>Le HTML livré au commanditaire ne doit contenir que les agrégats strictement nécessaires à la visualisation.</p>
+</div>
+
+<div class="conf-block fragment">
+  <div class="conf-badge ok">✓ Cas fil rouge</div>
+  <p>Toutes les données utilisées dans cette formation sont <strong>explicitement fictives</strong> — générées pour l'apprentissage, sans lien avec des individus réels.</p>
+</div>
+
+<div class="conf-block fragment">
+  <div class="conf-badge tip">→ Réflexe à acquérir</div>
+  <p>Avant chaque commit : <em>« Y a-t-il dans ce fichier plus de données que nécessaire ? »</em></p>
+</div>
+:::
+
+::: notes
+Rappeler que même des données agrégées peuvent poser des problèmes si les effectifs sont trop petits ou si les croisements permettent une réidentification.
+:::
 
 ## Le flux de production {.section-slide}
 
@@ -256,7 +312,7 @@ Le produit doit donc être **simple à ouvrir**, **agréable à lire**, **diffic
   <strong>HTML autonome</strong>
   <em>livrable final</em>
 </div>
-</div>
+:::
 
 ## Garantir la maîtrise du produit vibe codé
 
@@ -278,7 +334,7 @@ Le produit doit donc être **simple à ouvrir**, **agréable à lire**, **diffic
   <h3>Reproductibilité</h3>
   <p>Scripts, tests, README, commits, version du livrable.</p>
 </div>
-</div>
+:::
 
 ## La définition du « fini »
 
@@ -289,9 +345,9 @@ Le produit doit donc être **simple à ouvrir**, **agréable à lire**, **diffic
 <div class="done-item fragment"><span>✓</span><p>Les agrégats affichés sont recalculables.</p></div>
 <div class="done-item fragment"><span>✓</span><p>Aucune ressource externe non assumée.</p></div>
 <div class="done-item fragment"><span>✓</span><p>Le champ statistique est explicite.</p></div>
-<div class="done-item fragment"><span>✓</span><p>Les limites sont visibles.</p></div>
-<div class="done-item fragment"><span>✓</span><p>Un commit décrit chaque étape.</p></div>
-</div>
+<div class="done-item fragment"><span>✓</span><p>Les limites sont visibles dans le dashboard.</p></div>
+<div class="done-item fragment"><span>✓</span><p>Un commit décrit chaque étape de production.</p></div>
+:::
 
 ## La boucle de vibe coding
 
@@ -303,9 +359,9 @@ Le produit doit donc être **simple à ouvrir**, **agréable à lire**, **diffic
 <div class="loop-item l5 fragment">Observation</div>
 <div class="loop-item l6 fragment">Correction</div>
 <div class="loop-core fragment">Contrôle humain</div>
-</div>
+:::
 
-::: {.takeaway fragment}
+::: {.takeaway .fragment}
 L'IA accélère la fabrication.  
 Le statisticien garde la responsabilité de la preuve.
 :::
@@ -332,15 +388,17 @@ Le statisticien garde la responsabilité de la preuve.
 <h3>4. Critères de contrôle</h3>
 <p>« Fournis les tests et explique ce que je dois vérifier. »</p>
 </div>
-</div>
+:::
 
 ## Le fil rouge de la formation
 
 ::: {.case-study}
 <div class="case-left">
 <h3>POC BTS simulée</h3>
-<p>Deux zones d'emploi : Toulouse et Bordeaux.</p>
+<p class="case-badge">Données entièrement fictives</p>
+<p>Deux zones d'emploi : <strong>Toulouse</strong> et <strong>Bordeaux</strong>.</p>
 <p>Question : comment les PCS se distribuent-elles selon le sexe ?</p>
+<p>Le dashboard final ne contiendra que des agrégats de visualisation.</p>
 </div>
 
 <div class="case-right">
@@ -351,9 +409,9 @@ Le statisticien garde la responsabilité de la preuve.
   <div style="height: 22%"></div>
   <div style="height: 62%"></div>
 </div>
-<div class="mini-caption">Une base fictive pour apprendre sans exposer de données sensibles.</div>
+<div class="mini-caption">Base fictive inspirée de la Base tous salariés — pour apprendre sans exposer de données sensibles.</div>
 </div>
-</div>
+:::
 
 ## Ce que l'on va construire ensuite
 
@@ -362,10 +420,10 @@ Le statisticien garde la responsabilité de la preuve.
 <span>0</span><strong>Setting</strong><em>cadrage + garde-fous</em>
 </div>
 <div class="road-step fragment">
-<span>1</span><strong>Données</strong><em>Parquet + contrôles</em>
+<span>1</span><strong>Données</strong><em>Parquet fictif + contrôles</em>
 </div>
 <div class="road-step fragment">
-<span>2</span><strong>Dataviz</strong><em>choix visuels + storyboard</em>
+<span>2</span><strong>Storyboard</strong><em>choix visuels + narration</em>
 </div>
 <div class="road-step fragment">
 <span>3</span><strong>Dashboard</strong><em>Quarto + HTML autonome</em>
@@ -373,14 +431,35 @@ Le statisticien garde la responsabilité de la preuve.
 <div class="road-step fragment">
 <span>4</span><strong>Maîtrise</strong><em>tests + corrections IA</em>
 </div>
+:::
+
+## Versionnement Git — les règles
+
+::: {.git-rules}
+<div class="git-rule fragment">
+  <code>[ÉTAPE]</code>
+  <p>Préfixer chaque commit par l'étape : <code>[INIT]</code>, <code>[DATA]</code>, <code>[VIZ]</code>, <code>[DASH]</code>, <code>[FIX]</code>.</p>
 </div>
+<div class="git-rule fragment">
+  <code>message clair</code>
+  <p>Décrire ce qui change, pas ce qui a été fait : <em>« add PCS filter to dashboard »</em>, pas <em>« update files »</em>.</p>
+</div>
+<div class="git-rule fragment">
+  <code>.gitignore</code>
+  <p>Exclure les données sources brutes. Seuls les scripts et les agrégats validés sont versionnés.</p>
+</div>
+<div class="git-rule fragment">
+  <code>un commit = une intention</code>
+  <p>Ne pas mélanger correction de bug et nouvelle fonctionnalité dans le même commit.</p>
+</div>
+:::
 
 ## Commit conseillé
 
 ```bash
 # initialisation de l'étape 0
 git add slides/step0_setting.qmd slides/step0-theme.scss README.md
-git commit -m "[INIT] add step 0 training slides"
+git commit -m "[INIT] add step 0 training slides — cadrage et garde-fous"
 ```
 
 ::: {.closing}
