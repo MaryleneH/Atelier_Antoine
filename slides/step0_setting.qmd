@@ -34,7 +34,7 @@ execute:
 ::: {.hero-left}
 <div class="eyebrow">Étape 0</div>
 
-# Se mettre d'accord avant de coder
+<h1>Se mettre d'accord avant de coder</h1>
 
 <div class="hero-subtitle">
 Une formation pour apprendre à construire une datavisualisation Quarto interactive, moderne, livrable sans serveur — sans perdre la maîtrise statistique du produit.
