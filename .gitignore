@@ -38,3 +38,7 @@ Thumbs.db
 # ---- Cache divers ----
 .cache/
 .rproj.user/
+
+# ---- Quarto (cache projet) ----
+.quarto/
+**/*.quarto_ipynb
