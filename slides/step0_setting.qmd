@@ -340,25 +340,40 @@ Rappeler que même des données agrégées peuvent poser des problèmes si les e
 
 ::: {.done-grid}
 <div class="done-item fragment"><span>✓</span><p>Le fichier s'ouvre par double-clic.</p></div>
+
 <div class="done-item fragment"><span>✓</span><p>Les filtres réagissent sans serveur.</p></div>
+
 <div class="done-item fragment"><span>✓</span><p>Le résultat reste lisible sur écran portable.</p></div>
+
 <div class="done-item fragment"><span>✓</span><p>Les agrégats affichés sont recalculables.</p></div>
+
 <div class="done-item fragment"><span>✓</span><p>Aucune ressource externe non assumée.</p></div>
+
 <div class="done-item fragment"><span>✓</span><p>Le champ statistique est explicite.</p></div>
+
 <div class="done-item fragment"><span>✓</span><p>Les limites sont visibles dans le dashboard.</p></div>
+
 <div class="done-item fragment"><span>✓</span><p>Un commit décrit chaque étape de production.</p></div>
+
 :::
 
 ## La boucle de vibe coding
 
 ::: {.loop}
 <div class="loop-item l1 fragment">Intention</div>
+
 <div class="loop-item l2 fragment">Prompt</div>
+
 <div class="loop-item l3 fragment">Code généré</div>
+
 <div class="loop-item l4 fragment">Exécution</div>
+
 <div class="loop-item l5 fragment">Observation</div>
+
 <div class="loop-item l6 fragment">Correction</div>
+
 <div class="loop-core fragment">Contrôle humain</div>
+
 :::
 
 ::: {.takeaway .fragment}
@@ -370,24 +385,25 @@ Le statisticien garde la responsabilité de la preuve.
 
 ::: {.prompt-method}
 <div class="prompt-block fragment">
-<h3>1. Rôle</h3>
+<h3>1\. Rôle</h3>
 <p>« Agis comme UX designer data + développeur Quarto. »</p>
 </div>
 
 <div class="prompt-block fragment">
-<h3>2. Contraintes</h3>
+<h3>2\. Contraintes</h3>
 <p>« Pas de serveur, pas de Shiny, HTML autonome, données agrégées. »</p>
 </div>
 
 <div class="prompt-block fragment">
-<h3>3. Intention statistique</h3>
+<h3>3\. Intention statistique</h3>
 <p>« Montrer les différences de structure PCS selon le sexe. »</p>
 </div>
 
 <div class="prompt-block fragment">
-<h3>4. Critères de contrôle</h3>
+<h3>4\. Critères de contrôle</h3>
 <p>« Fournis les tests et explique ce que je dois vérifier. »</p>
 </div>
+
 :::
 
 ## Le fil rouge de la formation
