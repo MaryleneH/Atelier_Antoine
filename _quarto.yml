@@ -1,0 +1,4 @@
+project:
+  type: website
+  render:
+    - slides/step0_setting.qmd
