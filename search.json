@@ -1,0 +1,128 @@
+[
+  {
+    "objectID": "slides/step0_setting.html#vibe-coding-statistique",
+    "href": "slides/step0_setting.html#vibe-coding-statistique",
+    "title": "Vibe coding statistique",
+    "section": "Vibe coding statistique",
+    "text": "Vibe coding statistique\n\n\n\nÉtape 0\n\n\nSe mettre d’accord avant de coder\n\n\nUne formation pour apprendre à construire une datavisualisation Quarto interactive, moderne, livrable sans serveur — sans perdre la maîtrise statistique du produit.\n\n\nQuartoDatavizHTML autonomeContrôle statistique\n\n\n\n\n\n\n\n\n\n\n\nPOC\n\n\nDonnées\n\n\nAnalyse\n\n\nInterface\n\n\nTests\n\n\n\n\n\nInsister dès l’ouverture : on ne forme pas au « joli code généré ». On forme à une méthode de production statistique augmentée par IA."
+  },
+  {
+    "objectID": "slides/step0_setting.html#pourquoi-une-étape-0",
+    "href": "slides/step0_setting.html#pourquoi-une-étape-0",
+    "title": "Vibe coding statistique",
+    "section": "Pourquoi une étape 0 ?",
+    "text": "Pourquoi une étape 0 ?\n\nLe risque du vibe coding n’est pas que l’IA code trop vite.\nLe risque, c’est que nous ne sachions plus exactement ce que nous avons produit.\n\n\n\n\n01\n\n\nCadrer le destinataire\n\n\nQui utilise le produit ? Pour décider quoi ? Avec quel niveau d’autonomie ?\n\n\n\n\n02\n\n\nFixer la livraison\n\n\nUn fichier HTML autonome, consultable dans le navigateur, sans serveur applicatif.\n\n\n\n\n03\n\n\nGarder la maîtrise\n\n\nStatistique, technique, confidentialité, reproductibilité : rien ne doit rester implicite."
+  },
+  {
+    "objectID": "slides/step0_setting.html#le-contrat-de-départ",
+    "href": "slides/step0_setting.html#le-contrat-de-départ",
+    "title": "Vibe coding statistique",
+    "section": "Le contrat de départ",
+    "text": "Le contrat de départ\n\n\nPublic final Commanditaire métier Lit, filtre, compare, comprend. Ne code pas.\n\n\nPublic formé Statisticien / chargé d’étude Conçoit l’analyse, pilote l’IA, contrôle le résultat.\n\n\nProduit attendu Datastory interactive Quarto Pas un notebook, pas une application serveur, pas un tableau BI générique.\n\n\nMode de diffusion HTML autonome Ouvrable dans Edge/Firefox/Chrome ; partage possible comme un document."
+  },
+  {
+    "objectID": "slides/step0_setting.html#à-qui-parle-t-on",
+    "href": "slides/step0_setting.html#à-qui-parle-t-on",
+    "title": "Vibe coding statistique",
+    "section": "À qui parle-t-on ?",
+    "text": "À qui parle-t-on ?\n\n\n\n👤\n\n\nLe commanditaire\n\n\nVeut comprendre vite, explorer quelques hypothèses, repartir avec un message fiable.\n\n\n\n\n📊\n\n\nLe statisticien\n\n\nReste responsable des concepts, des traitements, des agrégations et des limites.\n\n\n\n\n🛡️\n\n\nL’environnement pro\n\n\nContraint les données, les navigateurs, les dépendances, les lieux de diffusion.\n\n\n\n\nLe produit doit donc être simple à ouvrir, agréable à lire, difficile à mal interpréter."
+  },
+  {
+    "objectID": "slides/step0_setting.html#la-cible-technique",
+    "href": "slides/step0_setting.html#la-cible-technique",
+    "title": "Vibe coding statistique",
+    "section": "La cible technique",
+    "text": "La cible technique\n\n\n\n\n\n\n&lt;div class=\"mock-title\"&gt;Analyse PCS × sexe&lt;/div&gt;\n&lt;div class=\"mock-kpis\"&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;/div&gt;\n&lt;div class=\"mock-chart\"&gt;&lt;/div&gt;\n&lt;div class=\"mock-row\"&gt;&lt;b&gt;&lt;/b&gt;&lt;b&gt;&lt;/b&gt;&lt;b&gt;&lt;/b&gt;&lt;b&gt;&lt;/b&gt;&lt;/div&gt;\n\n\n\n\nUn objet final très simple\n\n\nanalyse_interactive.html\n\n\nLe navigateur exécute l’interactivité. Les calculs lourds ont déjà été faits en amont."
+  },
+  {
+    "objectID": "slides/step0_setting.html#les-briques-retenues",
+    "href": "slides/step0_setting.html#les-briques-retenues",
+    "title": "Vibe coding statistique",
+    "section": "Les briques retenues",
+    "text": "Les briques retenues\n\n\n\nQuarto\n\n\nStructure, narration, slides, dashboard, rendu HTML.\n\n\n\n\nR / Python\n\n\nContrôles, nettoyage, indicateurs, reproductibilité statistique.\n\n\n\n\nDuckDB / Parquet\n\n\nTraitements efficaces, même quand la donnée devient volumineuse.\n\n\n\n\nJavaScript côté navigateur\n\n\nFiltres, interactions, transitions, dataviz réactive sans serveur.\n\n\n\n\nCSS\n\n\nIdentité visuelle, hiérarchie, lisibilité, responsive design.\n\n\n\n\nGit\n\n\nVersions, retours arrière, commits lisibles, traces des choix."
+  },
+  {
+    "objectID": "slides/step0_setting.html#ce-que-lon-ne-fait-pas",
+    "href": "slides/step0_setting.html#ce-que-lon-ne-fait-pas",
+    "title": "Vibe coding statistique",
+    "section": "Ce que l’on ne fait pas",
+    "text": "Ce que l’on ne fait pas\n\n\n✕ Pas de Shiny pas de serveur applicatif à maintenir\n\n\n✕ Pas de déploiement obligatoire le HTML peut vivre seul, sans infrastructure\n\n\n✕ Pas de données individuelles embarquées on expose les agrégats nécessaires, pas la base source\n\n\n✕ Pas de boîte noire tout code généré doit être relu, testé, versionné"
+  },
+  {
+    "objectID": "slides/step0_setting.html#contraintes-professionnelles",
+    "href": "slides/step0_setting.html#contraintes-professionnelles",
+    "title": "Vibe coding statistique",
+    "section": "Contraintes professionnelles",
+    "text": "Contraintes professionnelles\n\n\n\n🔒\n\n\nDonnées\n\n\nSeuls les agrégats de datavisualisation circulent dans le HTML final. Aucune donnée individuelle, même anonymisée.\n\n\n\n\n🌐\n\n\nNavigateur\n\n\nEdge, Firefox ou Chrome sur poste de travail. Pas de CDN externe obligatoire. Aucun appel réseau au chargement.\n\n\n\n\n📦\n\n\nDépendances\n\n\nBibliothèques embarquées dans le HTML ou déclarées explicitement. Pas d’installation silencieuse.\n\n\n\n\n🏛️\n\n\nDiffusion\n\n\nLe fichier HTML est transmis comme un document. Pas de serveur requis côté commanditaire.\n\n\n\n\nCes contraintes ne sont pas des obstacles. Ce sont les conditions de la confiance."
+  },
+  {
+    "objectID": "slides/step0_setting.html#confidentialité-et-données-fictives",
+    "href": "slides/step0_setting.html#confidentialité-et-données-fictives",
+    "title": "Vibe coding statistique",
+    "section": "Confidentialité et données fictives",
+    "text": "Confidentialité et données fictives\n\n\n\n⚠ Règle\n\n\nLe HTML livré au commanditaire ne doit contenir que les agrégats strictement nécessaires à la visualisation.\n\n\n\n\n✓ Cas fil rouge\n\n\nToutes les données utilisées dans cette formation sont explicitement fictives — générées pour l’apprentissage, sans lien avec des individus réels.\n\n\n\n\n→ Réflexe à acquérir\n\n\nAvant chaque commit : « Y a-t-il dans ce fichier plus de données que nécessaire ? »\n\n\n\n\nRappeler que même des données agrégées peuvent poser des problèmes si les effectifs sont trop petits ou si les croisements permettent une réidentification."
+  },
+  {
+    "objectID": "slides/step0_setting.html#le-flux-de-production",
+    "href": "slides/step0_setting.html#le-flux-de-production",
+    "title": "Vibe coding statistique",
+    "section": "Le flux de production",
+    "text": "Le flux de production\n\n\n1 Données sources CSV, Parquet, bases internes\n\n\n→\n\n\n2 Calcul statistique R / Python / DuckDB\n\n\n→\n\n\n3 Agrégats dataviz petits, contrôlés, non sensibles\n\n\n→\n\n\n4 Quarto + interface narration, filtres, graphes\n\n\n→\n\n\n5 HTML autonome livrable final"
+  },
+  {
+    "objectID": "slides/step0_setting.html#garantir-la-maîtrise-du-produit-vibe-codé",
+    "href": "slides/step0_setting.html#garantir-la-maîtrise-du-produit-vibe-codé",
+    "title": "Vibe coding statistique",
+    "section": "Garantir la maîtrise du produit vibe codé",
+    "text": "Garantir la maîtrise du produit vibe codé\n\n\nMaîtrise\n\n\n\nStatistique\n\n\nIndicateurs, pondérations, champ, limites, interprétation.\n\n\n\n\nTechnique\n\n\nDépendances, autonomie, compatibilité navigateur, performance.\n\n\n\n\nConfidentialité\n\n\nAgrégats seulement, pas de données inutiles dans le HTML.\n\n\n\n\nReproductibilité\n\n\nScripts, tests, README, commits, version du livrable."
+  },
+  {
+    "objectID": "slides/step0_setting.html#la-définition-du-fini",
+    "href": "slides/step0_setting.html#la-définition-du-fini",
+    "title": "Vibe coding statistique",
+    "section": "La définition du « fini »",
+    "text": "La définition du « fini »\n\n\n✓\n\nLe fichier s’ouvre par double-clic.\n\n\n\n✓\n\nLes filtres réagissent sans serveur.\n\n\n\n✓\n\nLe résultat reste lisible sur écran portable.\n\n\n\n✓\n\nLes agrégats affichés sont recalculables.\n\n\n\n✓\n\nAucune ressource externe non assumée.\n\n\n\n✓\n\nLe champ statistique est explicite.\n\n\n\n✓\n\nLes limites sont visibles dans le dashboard.\n\n\n\n✓\n\nUn commit décrit chaque étape de production."
+  },
+  {
+    "objectID": "slides/step0_setting.html#la-boucle-de-vibe-coding",
+    "href": "slides/step0_setting.html#la-boucle-de-vibe-coding",
+    "title": "Vibe coding statistique",
+    "section": "La boucle de vibe coding",
+    "text": "La boucle de vibe coding\n\n\nIntention\n\n\nPrompt\n\n\nCode généré\n\n\nExécution\n\n\nObservation\n\n\nCorrection\n\n\nContrôle humain\n\n\n\nL’IA accélère la fabrication.\nLe statisticien garde la responsabilité de la preuve."
+  },
+  {
+    "objectID": "slides/step0_setting.html#le-prompt-nest-pas-une-demande-de-code",
+    "href": "slides/step0_setting.html#le-prompt-nest-pas-une-demande-de-code",
+    "title": "Vibe coding statistique",
+    "section": "Le prompt n’est pas une demande de code",
+    "text": "Le prompt n’est pas une demande de code\n\n\n\n1. Rôle\n\n\n« Agis comme UX designer data + développeur Quarto. »\n\n\n\n\n2. Contraintes\n\n\n« Pas de serveur, pas de Shiny, HTML autonome, données agrégées. »\n\n\n\n\n3. Intention statistique\n\n\n« Montrer les différences de structure PCS selon le sexe. »\n\n\n\n\n4. Critères de contrôle\n\n\n« Fournis les tests et explique ce que je dois vérifier. »"
+  },
+  {
+    "objectID": "slides/step0_setting.html#le-fil-rouge-de-la-formation",
+    "href": "slides/step0_setting.html#le-fil-rouge-de-la-formation",
+    "title": "Vibe coding statistique",
+    "section": "Le fil rouge de la formation",
+    "text": "Le fil rouge de la formation\n\n\n\nPOC BTS simulée\n\n\nDonnées entièrement fictives\n\n\nDeux zones d’emploi : Toulouse et Bordeaux.\n\n\nQuestion : comment les PCS se distribuent-elles selon le sexe ?\n\n\nLe dashboard final ne contiendra que des agrégats de visualisation.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nBase fictive inspirée de la Base tous salariés — pour apprendre sans exposer de données sensibles."
+  },
+  {
+    "objectID": "slides/step0_setting.html#ce-que-lon-va-construire-ensuite",
+    "href": "slides/step0_setting.html#ce-que-lon-va-construire-ensuite",
+    "title": "Vibe coding statistique",
+    "section": "Ce que l’on va construire ensuite",
+    "text": "Ce que l’on va construire ensuite\n\n\n0Settingcadrage + garde-fous\n\n\n1DonnéesParquet fictif + contrôles\n\n\n2Storyboardchoix visuels + narration\n\n\n3DashboardQuarto + HTML autonome\n\n\n4Maîtrisetests + corrections IA"
+  },
+  {
+    "objectID": "slides/step0_setting.html#versionnement-git-les-règles",
+    "href": "slides/step0_setting.html#versionnement-git-les-règles",
+    "title": "Vibe coding statistique",
+    "section": "Versionnement Git — les règles",
+    "text": "Versionnement Git — les règles\n\n\n[ÉTAPE]\n\nPréfixer chaque commit par l’étape : [INIT], [DATA], [VIZ], [DASH], [FIX].\n\n\n\nmessage clair\n\nDécrire ce qui change, pas ce qui a été fait : « add PCS filter to dashboard », pas « update files ».\n\n\n\n.gitignore\n\nExclure les données sources brutes. Seuls les scripts et les agrégats validés sont versionnés.\n\n\n\nun commit = une intention\n\nNe pas mélanger correction de bug et nouvelle fonctionnalité dans le même commit."
+  },
+  {
+    "objectID": "slides/step0_setting.html#commit-conseillé",
+    "href": "slides/step0_setting.html#commit-conseillé",
+    "title": "Vibe coding statistique",
+    "section": "Commit conseillé",
+    "text": "Commit conseillé\n# initialisation de l'étape 0\ngit add slides/step0_setting.qmd slides/step0-theme.scss README.md\ngit commit -m \"[INIT] add step 0 training slides — cadrage et garde-fous\"\n\nAvant de vibe coder, on écrit le contrat de fabrication.\nC’est lui qui transforme une expérimentation IA en produit statistique maîtrisé."
+  }
+]
